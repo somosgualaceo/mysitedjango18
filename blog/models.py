@@ -12,5 +12,5 @@ class Post(models.Model):
     	self.published_date = timezone.now()
     	self.save()
 
-        def __unicode__(self):
-            return self.title
+    def __unicode__(self):
+        return self.title

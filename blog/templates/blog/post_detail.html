@@ -13,8 +13,9 @@
 
           
             <div>
-               
-              <img src="{{ post.imagen.url }}" width="380">
+               {% if post.imagen %}
+              <img src="{{ post.imagen.url }}" width="600px">
+              {% endif %}
                
             </div>
      
