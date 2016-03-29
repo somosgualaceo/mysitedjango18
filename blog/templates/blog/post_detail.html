@@ -4,12 +4,15 @@
         <div class="post">
             {% if post.published_date %}
                 <div class="date">
-                    {{ post.published_date }}
+                    <h4>{{ post.published_date }}</h4>
                 </div>
             {% endif %}
             {% if user.is_authenticated %}
-            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
             {% endif %}
+              <a class="btn btn-default"  href="javascript:window.history.go(-1);"><span class="glyphicon glyphicon-pencil"></span> Regresar</a>
+
+            
             <h1>{{ post.title }}</h1>
             <p>{{ post.text|linebreaks }}</p>
 

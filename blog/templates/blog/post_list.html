@@ -27,30 +27,35 @@
         {% for post in posts %}
             <div class="post">
                 <div class="date">
-                    {{ post.published_date }}
+                    <h4>{{ post.published_date }}</h4>
                 </div>
-                <h1><a href="{% url 'blog.views.post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-                <p>{{ post.text|linebreaks }}</p>
+                <h1><a href="{% url 'blog.views.post_detail' pk=post.pk %}">{{ post.title|truncatewords_html:11 }}</a></h1>
+                <p>{{ post.text|linebreaks|truncatewords_html:22 }}</p>
                 {% if post.imagen %}
                 <a href="{% url 'blog.views.post_detail' pk=post.pk %}"><img src="/media/{{ post.imagen }}" width="200px"></a>
                 {% endif %}
 
             </div>
         {% endfor %}
-
-        <div class="pagination">
+ <div class="pagination">
+    
     <ul class="pager">
+
+        <li><a href="/"> Primera </a></li>
         {% if posts.has_previous %}
+        
         <li class="previous"><a href="?page={{ posts.previous_page_number }}">&larr;Anterior</a></li>
+        
         {% endif %}
 
-
+        
         Página {{ posts.number }} de {{ posts.paginator.num_pages }}
-
 
         {% if posts.has_next %}
         <li class="next"><li><a href="?page={{ posts.next_page_number }}">Siguiente&rarr;</a></li>
         {% endif %}
+        <li><a href="?page={{posts.paginator.num_pages }}">Ultima</a></li>  
+
     </ul>
 </div>
 
