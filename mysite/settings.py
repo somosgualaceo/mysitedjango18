@@ -27,7 +27,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users',
     'blog',
+
+    'social.apps.django_app.default',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -91,7 +94,43 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'users.User'
 
+AUTHENTICATION_BACKENDS = (
+        'social.backends.facebook.FacebookAppOAuth2',
+        'social.backends.facebook.FacebookOAuth2',
+        'social.backends.twitter.TwitterOAuth',
+        'django.contrib.auth.backends.ModelBackend',
+    )
+
+#A donde va si todo sale bien
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+#A donde va si hay error
+SOCIAL_AUTH_LOGIN_URL = '/error/'
+#Utiliza el modelo que hemos creado nosotros en la app users
+SOCIAL_AUTH_USER_MODEL = 'users.User'
+#Facebook nos da el email de usuario
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+#Utilizartemos pipelines para traer la foto de usuario
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details',
+    #Esta es la que creamos nosotros
+    'users.pipelines.get_avatar',
+)
+SOCIAL_AUTH_FACEBOOK_KEY = '894701700556242'
+SOCIAL_AUTH_FACEBOOK_SECRET = '66b7950219e2863930e64a140e147f1a'
+
+SOCIAL_AUTH_TWITTER_KEY = '43BoDB8nQOsxkiAwPhWyogar5'
+SOCIAL_AUTH_TWITTER_SECRET = 'w1gwBHQSnZFCDfDC6mzx43ojCXt7zpUczBOKxGgdKgyaReb4O2'
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 

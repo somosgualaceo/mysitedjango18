@@ -1,16 +1,19 @@
 {% extends 'blog/base.html' %}
 
     {% block content %}
+    <br>
+    <br>
         <div class="post">
             {% if post.published_date %}
                 <div class="date">
                     <h4>{{ post.published_date }}</h4>
+                    Publicado por {{ post.author }}
                 </div>
             {% endif %}
             {% if user.is_authenticated %}
-            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span>Editar</a>
+            {% if post.author == user %}<a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span>Editar</a>{% endif %}
             {% endif %}
-              <a class="btn btn-default"  href="javascript:window.history.go(-1);"><span class="glyphicon glyphicon-pencil"></span> Regresar</a>
+              <a class="btn btn-default"  href="javascript:window.history.go(-1);"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
 
             
             <h1>{{ post.title }}</h1>
