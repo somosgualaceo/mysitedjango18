@@ -1,0 +1,2 @@
+solucionar registro de usuarios con facebook y twiter
+eliminar un post si el usuario lo ha agregado

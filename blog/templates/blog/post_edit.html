@@ -1,9 +1,26 @@
     {% extends 'blog/base.html' %}
 
     {% block content %}
+
+ 
+
+
         <h1>New post</h1>
-        <form method="POST" class="post-form" enctype='multipart/form-data'>{% csrf_token %}
+        <form action="." method="POST" class="post-form" enctype='multipart/form-data'>{% csrf_token %}
+        	
             {{ form.as_p }}
             <button type="submit" class="save btn btn-default">Save</button>
         </form>
+
+   <script type="text/javascript">
+		function replaceIt(enlace){ enlace.replaceWith('<img src="'+enlace.attr('href')+'" width="100"/>'); }
+		$('p').find('input[type=file]').each(function(){
+			replaceIt($(this).parent().find('a'));
+			var ll = $(this).parent().find('label').last()
+			if ($(ll).html() == 'Limpiar'){
+				$(ll).css('display', 'inline');
+			}
+		});
+	</script>
+
     {% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+{% block title %}Eliminar{% endblock %}
+{% block content %}
+<H3>Eliminar Post</H3>
+Esta seguro que desea eliminar este registro, de ser asi se perderan permanentenete toda la información asociada a este elemento
+<br>
+<br>
+
+<form role="form" action="{% url 'post_delete_post' post.id %}" method="POST">{% csrf_token %}
+                    <p class="">¿Desea eliminar el post "{{ post.title }}"?</p>
+
+                    <input type="submit" value="Sí" class="btn btn-danger"> 
+                    <a href="{% url 'post_list' %}" class="btn btn-default">No</a>
+                </form>
+
+{% endblock %}

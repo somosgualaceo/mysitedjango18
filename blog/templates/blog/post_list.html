@@ -23,7 +23,12 @@
         <li class="next"><li><a href="?page={{ posts.next_page_number }}">Siguiente&rarr;</a></li>
         {% endif %}
         <li><a href="?page={{posts.paginator.num_pages }}">Ultima</a></li>  
-
+    {% if user.is_authenticated %}
+        <li><a href="{% url 'blog.views.post_new' %}"><button type="submit" class="btn btn-primary">Agregar Nuevo Post</button></a></li>
+      {% else %}
+      
+    
+      {% endif %}
     </ul>
 </div>
 
@@ -31,7 +36,12 @@
             <div class="post">
                 <div class="date">
                     <h4><a href="{% url 'blog.views.post_detail' pk=post.pk %}">{{ post.published_date }}</a></h4>
-                    Publicado por {{ post.author }}
+                    Publicado por {{ post.author|linebreaks }}
+            {% if user.is_authenticated %}
+                    {% if post.author == user %}<a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
+                    <a class="btn btn-default" href="{% url 'post_delete_post' pk=post.pk %}"><span class="glyphicon glyphicon-ban-circle"></span> Eliminar</a>
+                    {% endif %}
+            {% endif %}
                 </div>
                 <h1><a href="{% url 'blog.views.post_detail' pk=post.pk %}">{{ post.title|truncatewords_html:11 }}</a></h1>
                 <p>{{ post.text|linebreaks|truncatewords_html:22 }}</p>
