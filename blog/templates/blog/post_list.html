@@ -36,7 +36,7 @@
             <div class="post">
                 <div class="date">
                     <h4><a href="{% url 'blog.views.post_detail' pk=post.pk %}">{{ post.published_date }}</a></h4>
-                    Publicado por {{ post.author|linebreaks }}
+                    Publicado por {{ post.author }} , Visitas {{ post.visitas }}
             {% if user.is_authenticated %}
                     {% if post.author == user %}<a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
                     <a class="btn btn-default" href="{% url 'post_delete_post' pk=post.pk %}"><span class="glyphicon glyphicon-ban-circle"></span> Eliminar</a>

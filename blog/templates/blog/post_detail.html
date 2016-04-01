@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
+{% block title %} {{ post.title }}{% endblock %}
 
     {% block content %}
     <br>
@@ -7,7 +8,9 @@
             {% if post.published_date %}
                 <div class="date">
                     <h4>{{ post.published_date }}</h4>
-                    Publicado por {{ post.author }}
+                    Publicado por {{ post.author|linebreaks }}
+                    Visitas {{ post.visitas }}
+
                 </div>
             {% endif %}
             {% if user.is_authenticated %}
@@ -26,10 +29,28 @@
                {% if post.imagen %}
               <img src="{{ post.imagen.url }}" width="600px">
               {% endif %}
-               
+              <br>
+               {% if post.imagen2 %}
+              <img src="{{ post.imagen2.url }}" width="600px">
+              {% endif %}
+              <br>
+               {% if post.video %}
+			<iframe width="380" height="250" src="http://www.youtube.com/embed/{{ post.video }}" frameborder="0" allowfullscreen></iframe>
+{% endif %}
             </div>
      
-            
+            <p><h5>Comparte esto
+con tus Amigos:</h5></p>   
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+<a class="addthis_button_tweet"></a>
+<a class="addthis_counter addthis_pill_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50d35f821007b154"></script>
+</div>
 
         </div>
     {% endblock %}

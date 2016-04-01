@@ -11,6 +11,9 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     imagen = models.ImageField(upload_to = 'Post', blank=True)
+    imagen2 = models.ImageField(upload_to= 'Post',null=True,blank=True)
+    video = models.CharField(max_length=250, blank=True)
+    visitas = models.IntegerField(default=-1) 
 
     def publish(self):
     	self.published_date = timezone.now()
