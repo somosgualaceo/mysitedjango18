@@ -1,8 +1,8 @@
   {% extends 'blog/base.html' %}
 
-    {% block content %}
+   
 
-
+{% block paginador %}
 
 
     <div class="pagination">
@@ -32,25 +32,37 @@
     </ul>
 </div>
 
+{% endblock paginador %}
+
+        {% block content %}
+         <section id="websites">
+
         {% for post in posts %}
-            <div class="post">
-                <div class="date">
-                    <h4><a href="{% url 'blog.views.post_detail' pk=post.pk %}">{{ post.published_date }}</a></h4>
-                    Publicado por {{ post.author }} , Visitas {{ post.visitas }}
+            
+                <article style="display: inline-block; text-align:left;">
+                     <div class="titulo"> <a href="{% url 'blog.views.post_detail' pk=post.pk %}">{{ post.title|truncatewords_html:13 }}</a></div>
+                    
+                    
             {% if user.is_authenticated %}
                     {% if post.author == user %}<a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
                     <a class="btn btn-default" href="{% url 'post_delete_post' pk=post.pk %}"><span class="glyphicon glyphicon-ban-circle"></span> Eliminar</a>
                     {% endif %}
             {% endif %}
-                </div>
-                <h1><a href="{% url 'blog.views.post_detail' pk=post.pk %}">{{ post.title|truncatewords_html:11 }}</a></h1>
-                <p>{{ post.text|linebreaks|truncatewords_html:22 }}</p>
+               
+               
+                <div class="texto">{{ post.text|linebreaks|truncatewords_html:14 }}</div>
                 {% if post.imagen %}
-                <a href="{% url 'blog.views.post_detail' pk=post.pk %}"><img src="/media/{{ post.imagen }}" width="200px"></a>
+                <a href="{% url 'blog.views.post_detail' pk=post.pk %}"><img src="/media/{{ post.imagen }}"></a>
                 {% endif %}
 
-            </div>
+                <p>Publicado por {{ post.author }} , Visitas {{ post.visitas }}</p>
+                <a href="{% url 'blog.views.post_detail' pk=post.pk %}">Publicado hace {{ post.published_date|timesince }}</a>
+             </article>  
         {% endfor %}
+        </section>
+        {% endblock content %}
+
+         {% block paginador2 %}
  <div class="pagination">
     
     <ul class="pager">
@@ -73,4 +85,4 @@
     </ul>
 </div>
 
-    {% endblock content %}
+    {% endblock paginador2 %}

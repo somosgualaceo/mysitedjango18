@@ -1,54 +1,69 @@
-    h1 a {
-        color: #FCA205;
-        font-family: 'Lobster';
-    }
-    body {
-        padding-left: 15px;
-    }
-    .page-header {
-        background-color: black;
-        margin-top: 0;
-        padding: 20px 20px 20px 40px;
-    }
+*{margin:0;}
+#contenedor{
+	background:white;
+	margin:0 auto;
+	max-width:1100px;
+}
 
-    .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-        color: #ffffff;
-        font-size: 36pt;
-        text-decoration: none;
-    }
+article{
+	display: inline-block;
+}
 
-    .content {
-        margin-left: 40px;
-    }
+#websites{
+	font-size:0;
+	text-align:center;
+}
+#websites article{
+	background: #FFFFFF;
+	border:2px solid lightgray;
+	border-radius:5px;
+	color: black;
+	font-size:15px;
+	margin:5px;
+	padding:10px;
+	width:260px;
+	height: 370px;
+}
+#websites article h1{
+	background:#ccc;
+	color: white;
+	font-size:15px;
+	margin:5px;
+}
+.titulo {
+	width: 235px;
+	height: 60px;
+	margin-bottom: 10px;
+}
 
-    h1, h2, h3, h4 {
-        font-family: 'Lobster', cursive;
-    }
+#websites div article a{
+	
+	font-size:16px;
+}
+.texto {
+	font-size:11px;
+	width: 235px;
+	height: 35px;
+	margin-bottom: 10px;
+}
 
-    .date {
-        float: right;
-        color: #828282;
-    }
+#websites article h3{
+	background:#ccc;
+	color: black;
+	font-size:12px;
+	margin:5px;
+}
+#websites article p{
+	font-size:11px;
 
-    .save {
-        float: right;
-    }
+}
+#websites img {
+	-webkit-transition:.2s;
+	margin-bottom: 10px;
+	width: 230px;
+	height: 150px;
 
-    .post-form textarea, .post-form input {
-        width: 100%;
-    }
-
-    .top-menu, .top-menu:hover, .top-menu:visited {
-        color: #ffffff;
-        float: right;
-        font-size: 26pt;
-        margin-right: 20px;
-    }
-
-    .post {
-        margin-bottom: 70px;
-    }
-
-    .post h1 a, .post h1 a:visited {
-        color: #000000;
-    }
+}
+#websites article:hover img{
+	-webkit-transform:scale(1.1);
+}

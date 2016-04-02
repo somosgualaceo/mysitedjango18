@@ -11,7 +11,7 @@ from django.core.urlresolvers import reverse, reverse_lazy
 def post_list(request):
 	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 
-	paginator = Paginator(posts, 3) 
+	paginator = Paginator(posts, 8) 
 	page = request.GET.get('page')
 
 	try:
