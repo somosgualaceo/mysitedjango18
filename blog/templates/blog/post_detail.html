@@ -1,10 +1,20 @@
 {% extends 'blog/base.html' %}
 {% block title %} {{ post.title }}{% endblock %}
 
+  	{% block js %}
+     <script type="text/javascript">
+        $(document).ready(function(){
+            $('.thumbnails').yoxview();
+        });
+    </script>
+{% endblock js %}
+
+
     {% block content %}
     <br>
     <br>
-        <div class="content-post">
+     <div id="contenedor">
+        <section class="content-post">
 
         	<div class="content-post1">
         	<section class ="contenedor-dosblques">
@@ -40,22 +50,27 @@
           </section><!-- contenedor dos bloques-->
             <div>
             	<section class ="contenedor-dosblques-img">
+            	
         			<div class ="foto1">
-
+        		 <div class="thumbnails">
                {% if post.imagen %}
-              <img src="{{ post.imagen.url }}">
+
+              <a href="/media/{{ post.imagen }}"><img src="/media/{{ post.imagen }}"/></a>
               {% else %}
               <img src="http://www.semanarioelpueblo.com.ec/descarga.png">
               {% endif %}
               <br>
+              </div><!-- cerrar div thumbnails-->
               </div><!-- cerrar div foto1-->
               <div class ="foto2">
+              <div class="thumbnails">
                {% if post.imagen2 %}
-              <img src="{{ post.imagen2.url }}" >
+              <a href="/media/{{ post.imagen2 }}"><img src="/media/{{ post.imagen2 }}"/></a>
               {% else %}
               <img src="http://www.semanarioelpueblo.com.ec/descarga.png">
               {% endif %}
               <br>
+              </div><!-- cerrar div thumbnails-->
               </div><!-- cerrar div foto2-->
 
               </section><!-- contenedor dos bloques img-->
@@ -80,11 +95,21 @@ con tus Amigos:</h5></p>
 </div>
 <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50d35f821007b154"></script>
-</div>
-<div><!-- cerrar el div class="content-post1" -->
+</div><!-- cerrar el div class="content-post1" -->
 
-<div class="content-post2">
-<div><!-- cerrar el div class="content-post2" -->
+</section><!-- cerrar el div content-post-->
 
-        </div>
+
+<section class="content-post2">
+			<div class="comentarios">
+
+			<div><!-- cerrar el div comentarios-->
+			<div class="comentarios">
+			<div><!-- cerrar el div comentarios-->
+		</section><!-- cerrar el div class="content-post2" -->
+      <div><!-- cerrar el div contenedor--> 
+
+
     {% endblock %}
+
+

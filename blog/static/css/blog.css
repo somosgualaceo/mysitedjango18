@@ -71,15 +71,17 @@ article{
 	-webkit-transform:scale(1.1);
 }
 
-div.content-post{
-	width: 100%;
+.content-post{
+	width: 70%;
 	background: white;
+	display: inline-block;	
 
 }
 .content-post1{
-	width: 70%;
+	width: 99%;
 	background: white;
-	margin: 2.5%;
+	margin:auto;
+	display: inline-block;
 }
 .contenedor-dosblques{
 	width: 100%;
@@ -148,13 +150,8 @@ div.content-post{
 }
 .foto2 img{
 	width: 100%;
-	
-	
+}
 
-}
-.content-post2{
-	width: 100%;
-}
 .cajadevideo{
 	width: 80%;
 	margin:auto;
@@ -202,3 +199,46 @@ h1 {
     .post-form textarea, .post-form input {
         width: 100%;
     }
+
+.content-post2{
+	width: 20%;
+	margin:auto;
+	display: inline-block;
+
+}
+.comentarios{
+		width: 20%;
+		display: inline-block;
+}
+
+ /* Media quieries */
+
+@media screen and (max-width: 480px){
+	.content-post2{
+	display: none;
+
+}
+	.content-post{
+	width: 100%;
+
+}
+	.cabezera h1{
+	font-size: 17px;
+
+}
+
+@media screen and (min-width: 600px){
+
+
+}
+
+@media screen and (min-width: 767px){
+	
+	
+}
+
+@media screen and (min-width: 950px){
+
+
+	
+}

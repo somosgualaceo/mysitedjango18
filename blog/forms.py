@@ -4,7 +4,7 @@ from .models import Post
 
 class PostForm(forms.ModelForm):
 
-	video = forms.CharField(help_text='Ej: http://www.youtube.com/watch?v=vGs1kl', required=False, widget=forms.TextInput(attrs={'pattern':'^(http|https)://(www\.)?youtube\.com/watch\?v=.+$'}))
+	video = forms.CharField(help_text='Ej: http://www.youtube.com/watch?v=vGs1kl' , required=False, widget=forms.TextInput(attrs={'pattern':'^(http|https)://(www\.)?youtube\.com/watch\?v=.+$'}))
 
 
 	class Meta:
