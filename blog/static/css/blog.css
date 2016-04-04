@@ -17,12 +17,15 @@ article{
 	background: #FFFFFF;
 	border:2px solid lightgray;
 	border-radius:5px;
+	-webkit-box-shadow: 3px 3px 10px #121212;
+	-moz-box-shadow: 3px 3px 10px #121212;
+	box-shadow: 3px 3px 10px #121212;
 	color: black;
 	font-size:15px;
 	margin:5px;
 	padding:10px;
 	width:260px;
-	height: 370px;
+	height: 380px;
 }
 #websites article h1{
 	background:#ccc;
@@ -67,3 +70,135 @@ article{
 #websites article:hover img{
 	-webkit-transform:scale(1.1);
 }
+
+div.content-post{
+	width: 100%;
+	background: white;
+
+}
+.content-post1{
+	width: 70%;
+	background: white;
+	margin: 2.5%;
+}
+.contenedor-dosblques{
+	width: 100%;
+	display: inline-block;
+	background: white;
+	-webkit-box-shadow: 3px 3px 10px #121212;
+	-moz-box-shadow: 3px 3px 10px #121212;
+	box-shadow: 3px 3px 10px #121212
+
+}
+
+.cabezera{
+	width: 65%;
+	float: left;
+	height: 200px;
+	background: white;
+	margin: 0%;
+	display: inline-block;
+	margin-right: 12px;
+
+}
+.cabezera-info{
+	width: 31%;
+	background: white;
+	display: inline-block;
+	text-align: right;
+	margin-top: 25px;
+
+}
+
+
+.contenedor-texto{
+	width: 100%;
+	background: white;
+	-webkit-box-shadow: 3px 3px 10px #121212;
+	-moz-box-shadow: 3px 3px 10px #121212;
+	box-shadow: 3px 3px 10px #121212
+
+}
+
+.contenedor-dosblques-img{
+	width: 100%;
+	display: inline-block;
+	background: white;
+	-webkit-box-shadow: 3px 3px 10px #121212;
+	-moz-box-shadow: 3px 3px 10px #121212;
+	box-shadow: 3px 3px 10px #121212
+
+}
+.foto1{
+	width: 42%;
+	display: inline-block;
+	margin: 2.5%;
+
+}
+.foto1 img{
+	width: 100%;
+	
+
+}
+.foto2{
+	width: 42%;
+	display: inline-block;
+	margin: 2.5%;
+
+}
+.foto2 img{
+	width: 100%;
+	
+	
+
+}
+.content-post2{
+	width: 100%;
+}
+.cajadevideo{
+	width: 80%;
+	margin:auto;
+}
+.video{
+
+    height:0px;
+    width:100%;
+    max-width:560px;
+    padding-top:56.25%;
+    position:relative;
+
+}
+
+iframe{
+
+    position:absolute;
+    height:100%;
+    width:100%;
+    top:0px;
+    left:0px;
+
+}
+
+h1 {
+    color: black;
+    font-family: 'Lobster';
+ }
+.pubhace a{
+    color: black;
+    font-family: 'Lobster';
+
+}
+ h4 {
+    color: #275D8D;
+    font-family: 'Lobster';
+ }
+
+ /* Formulario agregar Post */
+
+    .saveclass {
+        float: right;
+    }
+
+    .post-form textarea, .post-form input {
+        width: 100%;
+    }

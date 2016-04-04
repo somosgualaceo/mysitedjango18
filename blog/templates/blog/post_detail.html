@@ -4,39 +4,69 @@
     {% block content %}
     <br>
     <br>
-        <div class="post">
-            {% if post.published_date %}
-                <div class="date">
-                    <h4>{{ post.published_date }}</h4>
-                    Publicado por {{ post.author|linebreaks }}
-                    Visitas {{ post.visitas }}
+        <div class="content-post">
 
-                </div>
-            {% endif %}
-            {% if user.is_authenticated %}
+        	<div class="content-post1">
+        	<section class ="contenedor-dosblques">
+        			<div class ="cabezera">
+        	{% if user.is_authenticated %}
             {% if post.author == user %}<a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
             <a class="btn btn-default" href="{% url 'post_delete_post' pk=post.pk %}"><span class="glyphicon glyphicon-ban-circle"></span> Eliminar</a>
+            <a href="{% url 'blog.views.post_new' %}"><button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Agregar Nuevo</button></a>
             {% endif %}
             {% endif %}
               <a class="btn btn-default"  href="javascript:window.history.go(-1);"><span class="glyphicon glyphicon-arrow-left"></span> Regresar</a>
+               <h1>{{ post.title }}</h1>
 
-            
-            <h1>{{ post.title }}</h1>
+              	</div><!-- cerrar div cabezera-->
+
+              	<div class ="cabezera-info">
+
+            {% if post.published_date %}
+                
+                    <h4>Fecha de Creación {{ post.published_date }}</h4>
+                    Publicado por {{ post.author }}
+                    Visitas: {{ post.visitas|linebreaks}}
+                    Actualizado el {{ post.actualizado }}
+ 
+            {% endif %}
+            </div><!-- cerrar div cabezera-->
+            </section><!-- contenedor dos bloques-->
+
+            <section class ="contenedor-texto">
+           
             <p>{{ post.text|linebreaks }}</p>
 
-          
+          </section><!-- contenedor dos bloques-->
             <div>
+            	<section class ="contenedor-dosblques-img">
+        			<div class ="foto1">
+
                {% if post.imagen %}
-              <img src="{{ post.imagen.url }}" width="600px">
+              <img src="{{ post.imagen.url }}">
+              {% else %}
+              <img src="http://www.semanarioelpueblo.com.ec/descarga.png">
               {% endif %}
               <br>
+              </div><!-- cerrar div foto1-->
+              <div class ="foto2">
                {% if post.imagen2 %}
-              <img src="{{ post.imagen2.url }}" width="600px">
+              <img src="{{ post.imagen2.url }}" >
+              {% else %}
+              <img src="http://www.semanarioelpueblo.com.ec/descarga.png">
               {% endif %}
               <br>
+              </div><!-- cerrar div foto2-->
+
+              </section><!-- contenedor dos bloques img-->
                {% if post.video %}
-			<iframe width="380" height="250" src="http://www.youtube.com/embed/{{ post.video }}" frameborder="0" allowfullscreen></iframe>
-{% endif %}
+              <div class="cajadevideo">
+              <div class="video">
+              
+			<iframe  src="http://www.youtube.com/embed/{{ post.video }}" frameborder="0" allowfullscreen></iframe>
+			</div><!-- cerrar video-->
+			</div><!-- cerrar caja video-->
+			{% endif %}
             </div>
      
             <p><h5>Comparte esto
@@ -51,6 +81,10 @@ con tus Amigos:</h5></p>
 <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50d35f821007b154"></script>
 </div>
+<div><!-- cerrar el div class="content-post1" -->
+
+<div class="content-post2">
+<div><!-- cerrar el div class="content-post2" -->
 
         </div>
     {% endblock %}

@@ -10,6 +10,7 @@ class Post(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
+    actualizado = models.DateTimeField(auto_now_add=False, auto_now=True)
     imagen = models.ImageField(upload_to = 'Post', blank=True)
     imagen2 = models.ImageField(upload_to= 'Post',null=True,blank=True)
     video = models.CharField(max_length=250, blank=True)

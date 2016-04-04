@@ -1,6 +1,9 @@
  {% load staticfiles %}
-    <html>
+ <!DOCTYPE html>
+    <html lang="es">
         <head>
+        	<meta charset="UTF-8">
+        	<meta name="viewport" content="initial-scale=1">
            <TITLE>{% block title %} Publica Gualaceo {% endblock %}</TITLE>
             <!-- Latest compiled and minified CSS -->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -11,7 +14,10 @@
 <!-- Latest compiled and minified JavaScript -->          
             <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+            <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
             <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+            <script src="js/modernizr.custom.31855.js"></script>
+            
         </head>
            <body>
 

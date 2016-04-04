@@ -1,2 +1,3 @@
 solucionar registro de usuarios no graba el correo de facebook y twiter
 agregar Mis Posts donde vayan todos los post creados por el usuario
+En editar post en el campo del video deberia de estar agregado mas http://www.youtube.com/mas el codigo del video ya q no deja actualizar
